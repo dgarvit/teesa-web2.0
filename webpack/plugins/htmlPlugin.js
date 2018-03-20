@@ -10,6 +10,7 @@ const titles = {
   'signin': 'Signin',
   'signup': 'Signup',
   'profile': 'Profile',
+  'settings': 'Settings',
   '404': '404',
   '500': '500',
 };

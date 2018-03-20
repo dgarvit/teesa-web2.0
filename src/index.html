@@ -168,6 +168,14 @@
                 <span class="title">Profile</span>
               </a>
             </li>
+            <li class="nav-item">
+              <a class='sidebar-link' href="settings.html">
+                <span class="icon-holder">
+                  <i class="ti-user ti-settings"></i>
+                </span>
+                <span class="title">Settings</span>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -195,7 +203,7 @@
                 </a>
                 <ul class="dropdown-menu fsz-sm">
                   <li>
-                    <a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
+                    <a href="settings.html" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
                       <i class="ti-settings mR-10"></i>
                       <span>Settings</span>
                     </a>
@@ -225,19 +233,30 @@
             <div class="row gap-20 masonry pos-r">
               <div class="masonry-sizer col-md-6"></div>
 
-              <div class="masonry-item col-12">
+              <div class="masonry-item col-md-4">
                 <!-- #Profile info ==================== -->
                 <div class="bd bgc-white">
                   <div class="peers fxw-nw@lg+ ai-s">
                     <div class="peer peer-greed w-70p@lg+ w-100@lg- p-20">
-                        <div class="flex-profile col-md-12">
+                        <div class="flex-profile col-md-6">
                           <div class="w-100 mB-10 float-left">
-                            <h4 class="lh-1 fw-700">Profile</h6>
-                            <h6 class="lh-1 add-margin">Username: {{ username }}</h6>
-                            <h6 class="lh-1 add-margin">teesa ID: {{ address }}</h6>
-                            <h6 class="lh-1">Current teesa count: {{ balance }} TC</h6>
+                            <p class="lh-1 fw-700">Profile</p>
+                            <p class="lh-1 add-margin">Username: {{ username }}</p>
+                            <p class="lh-1 add-margin">teesa ID: {{ address }}</p>
+                            <p class="lh-1">Current teesa count: {{ balance }} TC</p>
                           </div>
-                          <div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="masonry-item col-md-2">
+                <!-- #Profile info ==================== -->
+                <div class="bd bgc-white">
+                  <div class="peers fxw-nw@lg+ ai-s">
+                    <div class="peer peer-greed w-70p@lg+ w-100@lg- p-20">
+                          <div class="masonary-item col-md-2">
                             <img src="https://api.qrserver.com/v1/create-qr-code/?data={{ address }}&amp;size=150x150" alt="qr-code" title="" />
                           </div>
                         </div>
@@ -246,6 +265,21 @@
                 </div>
               </div>
 
+              <br />
+
+              <div class="masonry-item col-md-6">
+                <!-- #Profile info ==================== -->
+                <div class="bd bgc-white">
+                  <div class="peers fxw-nw@lg+ ai-s">
+                    <div class="peer peer-greed w-70p@lg+ w-100@lg- p-20">
+                          <div class="masonary-item col-md-2">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?data={{ address }}&amp;size=150x150" alt="qr-code" title="" />
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
               <div class="masonry-item col-md-6">
                 <!-- #Transaction Details ==================== -->
