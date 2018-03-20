@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/x-icon" href="./assets/static/images/favicon.ico"/>
+    <title>Sign In</title>
+    <script src="assets/scripts/angular-scripts/angular.js"></script>
+    <script src="signin.js"></script>
+    <style>
+      #loader {
+        transition: all 0.3s ease-in-out;
+        opacity: 1;
+        visibility: visible;
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        background: #fff;
+        z-index: 90000;
+      }
+
+      #loader.fadeOut {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .logo-img {
+        width: 80px;
+        margin-top: 3px;
+      }
+
+      .spinner {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: calc(50% - 20px);
+        left: calc(50% - 20px);
+        background-color: #333;
+        border-radius: 100%;
+        -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+        animation: sk-scaleout 1.0s infinite ease-in-out;
+      }
+
+      .pointer:hover {
+        cursor: pointer;
+      }
+
+      .form-control:hover {
+        border: 1px #311B92 solid !important;
+      }
+
+      .btn-primary, .btn-primary:active, .btn-primary:visited {
+        background-color: #311B92 !important;
+        border: 2px solid #311B92 !important;
+      }
+
+      .btn-primary:hover {
+        background-color: #4527A0 !important;
+        border: 2px solid #4527A0 !important;
+        cursor: pointer;
+      }
+
+      @-webkit-keyframes sk-scaleout {
+        0% { -webkit-transform: scale(0) }
+        100% {
+          -webkit-transform: scale(1.0);
+          opacity: 0;
+        }
+      }
+
+      @keyframes sk-scaleout {
+        0% {
+          -webkit-transform: scale(0);
+          transform: scale(0);
+        } 100% {
+          -webkit-transform: scale(1.0);
+          transform: scale(1.0);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body class="app" ng-app="Teesa" ng-controller = "MainController">
+    <div id='loader'>
+      <div class="spinner"></div>
+    </div>
+
+    <script>
+      window.addEventListener('load', () => {
+        const loader = document.getElementById('loader');
+        setTimeout(() => {
+          loader.classList.add('fadeOut');
+        }, 300);
+      });
+    </script>
+    <div class="peers ai-s fxw-nw h-100vh">
+      <div class="d-n@sm- peer peer-greed h-100 pos-r bgr-n bgpX-c bgpY-c bgsz-cv" style='background-image: url("assets/static/images/bg.jpg")'>
+        <div class="pos-a centerXY">
+          <div class="bgc-white bdrs-50p pos-r" style='width: 120px; height: 120px;'>
+            <img class="pos-a centerXY logo-img" src="assets/static/images/teesa-logo.png" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 peer pX-40 pY-80 h-100 bgc-white scrollable pos-r" style='min-width: 320px;'>
+        <div><h4 class="fw-300 c-grey-900 mB-40">Login</h4></div>
+        <form>
+          <div class="form-group">
+            <label class="text-normal text-dark">Username</label>
+            <input class="form-control" placeholder="Enter Username">
+          </div>
+          <div class="form-group">
+            <label class="text-normal text-dark">Password</label>
+            <input type="password" class="form-control" placeholder="Enter Password">
+          </div>
+          <div class="form-group">
+            <div class="peers ai-c jc-sb fxw-nw">
+              <div class="peer">
+                <div class="checkbox checkbox-circle checkbox-info peers ai-c">
+                  <input type="checkbox" id="inputCall1" name="inputCheckboxesCall" class="peer remember-me" checked>
+                  <label for="inputCall1" class=" peers peer-greed js-sb ai-c">
+                    <span class="peer peer-greed pointer">Remember Me</span>
+                    <span class="peer peer-greed pointer"> | <a class="md-purple-700" href="/signup.html"> Sign up</a></span>
+                  </label>
+                </div>
+              </div>
+              <div class="peer">
+                <button class="btn btn-primary" ng-click="login()" id="login_btn">Login</button>
+              </div>
+            </div>
+          </div>
+          <div>
+            <p class="fw-500" id="message"></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
