@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/x-icon" href="./assets/static/images/favicon.ico"/>
+    <title>Profile</title>
+    <script src="assets/scripts/angular-scripts/angular.js"></script>
+    <script src="index.js"></script>
+    </script>
+    <style>
+      #loader {
+        transition: all 0.3s ease-in-out;
+        opacity: 1;
+        visibility: visible;
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        background: #fff;
+        z-index: 90000;
+      }
+
+      #loader.fadeOut {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .logo-img {
+        width: 45px;
+      }
+
+      .flex-profile {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      #flex-prop {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+      }
+
+      .add-margin {
+        margin-top: 30px;
+      }
+
+      .spinner {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: calc(50% - 20px);
+        left: calc(50% - 20px);
+        background-color: #333;
+        border-radius: 100%;
+        -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+        animation: sk-scaleout 1.0s infinite ease-in-out;
+      }
+
+      @-webkit-keyframes sk-scaleout {
+        0% { -webkit-transform: scale(0) }
+        100% {
+          -webkit-transform: scale(1.0);
+          opacity: 0;
+        }
+      }
+
+      @keyframes sk-scaleout {
+        0% {
+          -webkit-transform: scale(0);
+          transform: scale(0);
+        } 100% {
+          -webkit-transform: scale(1.0);
+          transform: scale(1.0);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body class="app" ng-app="Teesa" ng-controller = "MainController">
+    <!-- @TOC -->
+    <!-- =================================================== -->
+    <!--
+      + @Page Loader
+      + @App Content
+          - #Left Sidebar
+              > $Sidebar Header
+              > $Sidebar Menu
+
+          - #Main
+              > $Topbar
+              > $App Screen Content
+    -->
+
+    <!-- @Page Loader -->
+    <!-- =================================================== -->
+    <div id='loader'>
+      <div class="spinner"></div>
+    </div>
+
+    <script>
+      window.addEventListener('load', () => {
+        const loader = document.getElementById('loader');
+        setTimeout(() => {
+          loader.classList.add('fadeOut');
+        }, 300);
+      });
+    </script>
+
+    <!-- @App Content -->
+    <!-- =================================================== -->
+    <div>
+      <!-- #Left Sidebar ==================== -->
+      <div class="sidebar">
+        <div class="sidebar-inner">
+          <!-- ### $Sidebar Header ### -->
+          <div class="sidebar-logo">
+            <div class="peers ai-c fxw-nw">
+              <div class="peer peer-greed">
+                <a class="sidebar-link td-n" href="/">
+                  <div class="peers ai-c fxw-nw">
+                    <div class="peer">
+                      <div class="logo">
+                        <img src="assets/static/images/teesa-logo.png" alt="" class="logo-img">
+                      </div>
+                    </div>
+                    <div class="peer peer-greed">
+                      <h5 class="lh-1 mB-0 logo-text">teesa</h5>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="peer">
+                <div class="mobile-toggle sidebar-toggle">
+                  <a href="" class="td-n">
+                    <i class="ti-arrow-circle-left"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ### $Sidebar Menu ### -->
+          <ul class="sidebar-menu scrollable pos-r">
+            <li class="nav-item mT-30 active">
+              <a class="sidebar-link" href="/">
+                <span class="icon-holder">
+                  <i class="c-blue-500 ti-home"></i>
+                </span>
+                <span class="title">Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class='sidebar-link' href="sendmoney.html">
+                <span class="icon-holder">
+                  <i class="c-light-blue-500 ti-wallet"></i>
+                </span>
+                <span class="title">Send Money</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class='sidebar-link' href="transactions.html">
+                <span class="icon-holder">
+                  <i class="c-purple-500 ti-file"></i>
+                </span>
+                <span class="title">Previous Transactions</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class='sidebar-link' href="profile.html">
+                <span class="icon-holder">
+                  <i class="ti-user mR-12"></i>
+                </span>
+                <span class="title">Profile</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- #Main ============================ -->
+      <div class="page-container">
+        <!-- ### $Topbar ### -->
+        <div class="header navbar">
+          <div class="header-container">
+            <ul class="nav-left">
+              <li>
+                <a id='sidebar-toggle' class="sidebar-toggle" href="javascript:void(0);">
+                  <i class="ti-menu"></i>
+                </a>
+              </li>
+            </ul>
+            <ul class="nav-right">
+
+              <li class="dropdown">
+                <a href="" class="dropdown-toggle no-after peers fxw-nw ai-c lh-1" data-toggle="dropdown">
+                  <div class="layers">
+                    <div class="peer mR-10" style="border-radius: 32px;">
+                    <img src="https://www.gravatar.com/avatar/{{username}}?s=32&d=identicon&r=PG" style="border-radius: 32px;" />
+                    <span class="fsz-sm c-grey-900">{{ username }}</span>
+                  </div>
+                </a>
+                <ul class="dropdown-menu fsz-sm">
+                  <li>
+                    <a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
+                      <i class="ti-settings mR-10"></i>
+                      <span>Settings</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="profile.html" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
+                      <i class="ti-user mR-10"></i>
+                      <span>Profile</span>
+                    </a>
+                  </li>
+                  <li role="separator" class="divider"></li>
+                  <li>
+                    <a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
+                      <i class="ti-power-off mR-10"></i>
+                      <span>Logout</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ### $App Screen Content ### -->
+        <main class='main-content bgc-grey-100'>
+          <div id='mainContent'>
+            <div class="row gap-20 masonry pos-r">
+              <div class="masonry-sizer col-md-6"></div>
+
+                <div class="masonry-item col-12">
+                <!-- Gravatar ==================== -->
+                <div class="bd bgc-white">
+                  <div class="peers fxw-nw@lg+ ai-s">
+                    <div class="bd bgc-white">
+                    <div class="layers w-100 p-20">
+                      <div class="peer mR-10">
+                        <img src="https://www.gravatar.com/avatar/{{username}}?s=200&d=identicon&r=PG" />
+                      </div>
+                      <br />
+                      <p class="lh-1 fw-500">{{ username }}</p>
+
+                      <div class="layer w-100 p-20">
+                      </div>
+                    </div>
+                  </div>
+                    <div class="peer bdL p-20 w-30p@lg+ w-100p@lg-" style="margin-right: 100px;">
+                      <div class="layers">
+                        <div class="layer w-100">
+                          <!-- Profile -->
+                          <h3 class="lh-1 fw-700">Profile</h3>
+                          <h5 class="lh-1 add-margin">Username: {{ username }}</h5>
+                          <h5 class="lh-1 add-margin">teesa ID: {{ address }}</h5>
+                          <h5 class="lh-1 add-margin">Current teesa count: {{ balance }} TC</h5>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="peer bdL p-20 w-30p@lg+ w-100p@lg-">
+                      <div class="layers">
+                        <div class="layer w-100">
+                          <!-- QR code -->
+                          <div class="peer mR-10 p20">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?data={{ address }}&amp;size=150x150" alt="qr-code" title="" />
+                            <h5 class=" lh-1 fw-700 add-margin"> {{ address }} </h5>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+        <!-- ### $App Screen Footer ### -->
+        <footer class="bdT ta-c p-30 lh-0 fsz-sm c-grey-600">
+          <span>Made with <i class="c-red-500 ti-heart"></i> by <strong class="fw-600">0xBAD1CEB00DA</div>.</span>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
