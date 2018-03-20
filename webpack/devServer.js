@@ -19,7 +19,7 @@ const devServer = {
   historyApiFallback: {
                         index: '/404.html'
                       },
-  port               : manifest.IS_PRODUCTION ? 3001 : 3000,
+  port               : manifest.IS_PRODUCTION ? 3000 : 3001,
   compress           : manifest.IS_PRODUCTION,
   inline             : !manifest.IS_PRODUCTION,
   watchContentBase: true,
