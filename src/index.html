@@ -28,8 +28,8 @@
       }
       .flex-profile {
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        align-items: center;
+        justify-content: center;
       }
       .add-margin {
         margin-top: 30px;
@@ -224,28 +224,31 @@
           <div id='mainContent'>
             <div class="row gap-20 masonry pos-r">
               <div class="masonry-sizer col-md-6"></div>
+              <div class="masonry-item  w-100">
+                <div class="row gap-20">
+                  <!-- #Profile Details ==================== -->
+                  <div class='col-md-10'>
+                    <div class="layers bd bgc-white p-20">
+                      <div class="layer w-100 mB-10" style="height:150px;">
+                        <h6 class="lh-1 fw-700">Profile</h6>
+                        <h6 class="lh-1">Username: {{ username }}</h6>
+                        <h6 class="lh-1">teesa ID: {{ address }}</h6>
+                        <h6 class="lh-1">Current teesa count: {{ balance }} TC</h6>
+                      </div>
+                    </div>
+                  </div>
 
-              <div class="masonry-item col-12">
-                <!-- #Profile info ==================== -->
-                <div class="bd bgc-white">
-                  <div class="peers fxw-nw@lg+ ai-s">
-                    <div class="peer peer-greed w-70p@lg+ w-100@lg- p-20">
-                        <div class="flex-profile col-md-12">
-                          <div class="w-100 mB-10 float-left">
-                            <h4 class="lh-1 fw-700">Profile</h6>
-                            <h6 class="lh-1 add-margin">Username: {{ username }}</h6>
-                            <h6 class="lh-1 add-margin">teesa ID: {{ address }}</h6>
-                            <h6 class="lh-1">Current teesa count: {{ balance }} TC</h6>
-                          </div>
+                  <div class='col-md-2'>
+                    <div class="layers bd bgc-white p-20">
+                      <div class="layer w-100 mB-10">
+                        <div class="flex-profile">
                           <div>
                             <img src="https://api.qrserver.com/v1/create-qr-code/?data={{ address }}&amp;size=150x150" alt="qr-code" title="" />
                           </div>
                         </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
-
 
               <div class="masonry-item col-md-6">
                 <!-- #Transaction Details ==================== -->
