@@ -2,7 +2,7 @@
     angular.module('Teesa', ['ngCookies'])
     .controller('MainController', ['$http', '$window', '$scope', '$cookieStore', function($http, $window, c, d) {
         if (d.get('session') && d.get('username')) {
-            this.base_url = "http://10.42.0.93:8000";
+            this.base_url = "http://159.65.152.102:8000";
             $http({
                 method: 'POST',
                 url: this.base_url,
@@ -27,7 +27,7 @@
             login_button.disabled = true;
             $http({
                 method: 'POST',
-                url: "http://10.42.0.93:8000/login",
+                url: "http://159.65.152.102:8000/login",
                 data: {
                     'username': document.getElementsByClassName('form-control')[0].value,
                     'password': document.getElementsByClassName('form-control')[1].value

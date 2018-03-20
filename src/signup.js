@@ -3,7 +3,7 @@
     .controller('MainController', ['$http', '$window', '$scope', '$cookieStore', function($http, $window, c, d) {
 
         if (d.get('session') && d.get('username')) {
-            this.base_url = "http://10.42.0.93:8000";
+            this.base_url = "http://159.65.152.102:8000";
             $http({
                 method: 'POST',
                 url: this.base_url,
@@ -33,7 +33,7 @@
                 document.getElementById('register_btn').disabled = true;
                 $http({
                     method: 'POST',
-                    url: "http://10.42.0.93:8000/create_account",
+                    url: "http://159.65.152.102:8000/create_account",
                     data: {
                         'username': document.getElementById('username').value,
                         'password': document.getElementById('password').value

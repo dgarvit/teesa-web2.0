@@ -4,7 +4,7 @@
         //$window.location.href = '/signin.html';
         if (d.get('session') === undefined)
             $window.location.href = '/signin.html';
-        this.base_url = "http://10.42.0.93:8000";
+        this.base_url = "http://159.65.152.102:8000";
         $http({
             method: 'POST',
             url: this.base_url,
@@ -25,7 +25,7 @@
                 c.address = d.get('address');
                 $http({
                     method: 'POST',
-                    url: ('http://10.42.0.93:8000/get_balance'),
+                    url: ('http://159.65.152.102:8000/get_balance'),
                     data: {
                         'address': c.address
                     },
@@ -48,7 +48,7 @@
                 btn.disabled = true;
                 $http({
                     method: 'POST',
-                url: "http://10.42.0.93:8000/send_money",
+                url: "http://159.65.152.102:8000/send_money",
                 data: {
                     'session': d.get('session'),
                     'username': d.get('username'),
@@ -81,7 +81,7 @@
         c.getTransactions = function() {
             $http({
                 method: 'POST',
-                url: "http://10.42.0.93:8000/get_transactions",
+                url: "http://159.65.152.102:8000/get_transactions",
                 data: {
                     'address': d.get('address'),
                 },
