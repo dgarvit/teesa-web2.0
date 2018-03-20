@@ -251,6 +251,29 @@
               </div>
               <div class="masonry-item col-md-6">
                 <div class="bgc-white p-20 bd">
+                  <h6 class="c-grey-900">Send Money to a Group</h6>
+                  <div class="mT-30">
+                    <form>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">teesa Group ID</label>
+                        <input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter teesa ID">
+                      </div>
+                      <div class="form-group">
+                        <label for="teesaCoin">teesa Coin Amount</label>
+                        <input type="text" class="form-control" id="teesaCoin" placeholder="Enter Amount">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Re-enter Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Re-enter Password">
+                      </div>
+                      <button class="btn btn-primary" id="send_btn" ng-click="sendmoney()">Send to a Group</button>
+                      <p class="fw-500" id="message"></p>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="masonry-item col-md-12">
+                <div class="bgc-white p-20 bd">
                   <h6 class="c-grey-900">Profile</h6>
                   <div class="mT-30">
                     <p>
@@ -260,6 +283,7 @@
                 </div>
               </div>
           </div>
+        </div>
         </main>
 
         <!-- ### $App Screen Footer ### -->
