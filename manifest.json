@@ -1,0 +1,23 @@
+{
+	"publicPath": "/",
+	"paths":
+	{
+		"src": "./src",
+		"build": "./build"
+	},
+	
+	"outputFiles":
+	{
+		"bundle": "bundle.js",
+		"vendor": "vendor.js",
+		"css": "style.css"
+	},
+
+	"entries": {
+		"js": "index.js"
+	},
+	"NODE_ENV": "development",
+	"IS_DEVELOPMENT": true,
+	"IS_PRODUCTION": false,
+	"assets": true
+}
